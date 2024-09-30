@@ -1,0 +1,50 @@
+#git clone <link>  to pull file from githup
+
+-- Add And Reset And Commit & Explain Progress----
+git status     ---------------> file status
+git add + <file>   ---->stage area
+git reset +<file>      ------> reset file from staging area
+git add *   -------->staging all files
+git commit -m "<commit Msg>"   -------------->to make a commit 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-05 Push Local Changes To Remote Repository
+
+git branch
+(my-feature)$ git checkout master
+Switched to branch 'master'
+(master)$
+git remote
+git remote -v 
+git push <remote> <brance>
+git pull <remote> ----------> pull data = fetch (get the updated data from remot repo) + merge(merch the local with the pulled remote)
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+ #07Everything About Git Configurations
+
+git config -l
+git help config
+git user config  --global user.email ---------------->get the user email
+git user config  --global user.email <"user email"> -----------add  user
+ git config -l --show-origin ---------------->منين بيجيب الداتا
+git config --global --unset  user.name -------> delete the first user 
+git config --global --edit ---------> open editor
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#08  Generate And Test Github Public Key 
+
+ssh-keygen -t  rsa -b 4096 -C "the email you gonna sign with"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+#09 Create Repository From Existing Project
+
+make folder as new repo 
+mkdir <folder name>
+cd <last folder name>
+git init -------> initiate the folder as repo.
+touch <file name.extetion>   ----------> make file
+then go to make remote repo in git hup and get the next links 
+ssh:  git remote add origin git@github.com:AhmedKimooo/course.git  -->can be change
+git push -u origin main     -----> -u : make pull for all chainging from partners then make push for all data.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ #10 - Learn Pull Request With Real Examples
+
+
+ 
