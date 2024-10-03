@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class AddToCartSectionPage extends BasePage {
 
     public AddToCartSectionPage(WebDriver driver) {
@@ -14,16 +16,7 @@ public class AddToCartSectionPage extends BasePage {
     }
 
 
-    @FindBy(css = "[data-test=\"add-to-cart-sauce-labs-backpack\"]")
-    private WebElement AddItem1;
-    @FindBy(css ="[data-test=\"add-to-cart-sauce-labs-bike-light\"]" )
-    private WebElement AddItem2;
-    @FindBy(css = "[data-test=\"add-to-cart-sauce-labs-bolt-t-shirt\"]")
-    private WebElement AddItem3;
-    @FindBy(css ="[data-test=\"add-to-cart-sauce-labs-fleece-jacket\"]" )
-    private WebElement AddItem4;
-    @FindBy(css = "[data-test=\"add-to-cart-sauce-labs-onesie\"]")
-    private WebElement AddItem5;
+
     @FindBy(css = "[data-test=\"shopping-cart-link\"")
     private WebElement cartLink;
 
@@ -31,19 +24,28 @@ public class AddToCartSectionPage extends BasePage {
 
 
     public AddToCartSectionPage addItems() throws InterruptedException {
-        AddItem1.click();
-        Thread.sleep(1500);
-        AddItem2.click();
-        Thread.sleep(1500);
-        AddItem3.click();
-        Thread.sleep(1500);
-        AddItem4.click();
-        Thread.sleep(1500);
-        AddItem5.click();
-        Thread.sleep(1500);
+        List<WebElement> listo = driver.findElements(By.xpath("//div[@data-test=\"inventory-item\"]"));
+        System.out.println(listo.size());
+
+        for (WebElement item : listo) {
+            // Replace 'desired-item-condition' with your actual condition
+//            System.out.println(item.getText());
+//            if(item.isDisplayed()){
+//                Assert.assertTrue(item.isDisplayed(),"go";)
+////            }
+            if (item.getText().contains("$")) {
+                // Find and click the "Add to Cart" button
+                WebElement addToCartButton = item.findElement(By.cssSelector("[class=\"btn btn_primary btn_small btn_inventory \"]"));
+                addToCartButton.click();
+            }
+            Thread.sleep(1500);
+
+
+        }
         return this;
 
     }
+
     public CartSectionPage CartLingBtn() throws InterruptedException {
         Thread.sleep(1500);
         cartLink.click();
