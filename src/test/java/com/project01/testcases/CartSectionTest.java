@@ -35,17 +35,6 @@ public class CartSectionTest extends BaseTest {
 
 
 
-        // add to cart section
-
-        //cart Section
-
-
-        //postal check
-
-
-
-
-
 
 
     }

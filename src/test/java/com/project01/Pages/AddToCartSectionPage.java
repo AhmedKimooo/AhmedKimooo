@@ -46,6 +46,29 @@ public class AddToCartSectionPage extends BasePage {
 
     }
 
+    public AddToCartSectionPage removeItems() throws InterruptedException {
+        List<WebElement> listo = driver.findElements(By.xpath("//div[@data-test=\"inventory-item\"]"));
+        System.out.println(listo.size());
+
+        for (WebElement item : listo) {
+            // Replace 'desired-item-condition' with your actual condition
+//            System.out.println(item.getText());
+//            if(item.isDisplayed()){
+//                Assert.assertTrue(item.isDisplayed(),"go";)
+////            }
+            if (item.getText().contains("$")) {
+                // Find and click the "Add to Cart" button
+                WebElement addToCartButton = item.findElement(By.cssSelector("[class=\"btn btn_secondary btn_small btn_inventory \"]"));
+                addToCartButton.click();
+            }
+            Thread.sleep(1500);
+
+
+        }
+        return this;
+
+    }
+
     public CartSectionPage CartLingBtn() throws InterruptedException {
         Thread.sleep(1500);
         cartLink.click();
